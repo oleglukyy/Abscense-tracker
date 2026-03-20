@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Absence Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="header__title">Absence<span class="accent">Tracker</span></h1>
+      <p class="header__subtitle">
+        Sube tu archivo TXT para analizar tus faltas
+      </p>
+      <a
+        href="https://seneca.juntadeandalucia.es/seneca/jsp/portal/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-registro"
+      >
+        Registro de faltas ↗
+      </a>
+    </header>
+
+    <main class="main">
+      <!-- Upload section -->
+      <section class="upload-section" id="uploadSection">
+        <label class="upload-label" for="fileInput" id="dropZone">
+          <div class="upload-label__icon">📂</div>
+          <p class="upload-label__text">
+            Arrastra tu archivo o haz clic para seleccionar
+          </p>
+          <p class="upload-label__hint">Solo archivos <strong>.txt</strong></p>
+          <input
+            type="file"
+            id="fileInput"
+            accept=".txt"
+            class="upload-input"
+          />
+        </label>
+        <p class="upload-note">
+          Formato esperado: un nombre de asignatura por línea.<br />
+          Las repeticiones cuentan como faltas adicionales.
+        </p>
+      </section>
+
+      <!-- Results section (hidden by default) -->
+      <section class="results-section hidden" id="resultsSection">
+        <div class="results-header">
+          <h2 class="results-header__title">Resultados</h2>
+          <button class="btn-reset" id="resetBtn">← Subir otro archivo</button>
+        </div>
+
+        <div class="summary-bar" id="summaryBar">
+          <!-- Injected by JS -->
+        </div>
+
+        <ul class="subject-list" id="subjectList">
+          <!-- Injected by JS -->
+        </ul>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>
+        Edita <code>SUBJECT_CONFIG</code> en <code>main.js</code> para ajustar
+        las horas por asignatura.
+      </p>
+    </footer>
+
+    <script src="main.js"></script>
+  </body>
+</html>
